@@ -161,6 +161,33 @@
       
       
 
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Aplicações
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Aplicações" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Aplicações
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
 
   <li class="md-nav__item">
     <a href="../keycloak/" title="Keycloak" class="md-nav__link">
@@ -168,10 +195,10 @@
     </a>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
 
 
   <li class="md-nav__item">
@@ -180,10 +207,10 @@
     </a>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
 
   
 
@@ -295,16 +322,81 @@
     
   </li>
 
+        
+      </ul>
+    </nav>
+  </li>
+
     
       
       
       
 
 
-  <li class="md-nav__item">
-    <a href="../monitoramento/" title="Monitoramento" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Kubernetes
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Kubernetes" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Kubernetes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
       Monitoramento
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Monitoramento" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Monitoramento
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../prometheus/prometheus/" title="Prometheus" class="md-nav__link">
+      Prometheus
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -424,18 +516,7 @@
 <li><a href="https://github.com/jitsi/docker-jitsi-meet">https://github.com/jitsi/docker-jitsi-meet</a></li>
 </ul>
 <h2 id="como-iniciar">Como iniciar?<a class="headerlink" href="#como-iniciar" title="Permanent link">&para;</a></h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code># Clonar o ambiente, nesse caso usaremos o oficial.
+<div class="highlight"><pre><span></span><code># Clonar o ambiente, nesse caso usaremos o oficial.
 git clone https://github.com/jitsi/docker-jitsi-meet.git
 
 cd docker-jitsi-meet
@@ -448,21 +529,9 @@ chmod +x gen-passwords.sh
 # Gerar as variaveis de segurança.
 ./gen-passwords.sh
 </code></pre></div>
-</td></tr></table>
 
 <p>Após isto, edite as variaveis necessarias no arquivo .env. As mais importantes são:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code># Local onde os arquivos de configuração serão salvos (incluindo certificados)
+<div class="highlight"><pre><span></span><code># Local onde os arquivos de configuração serão salvos (incluindo certificados)
 CONFIG=./jitsi-meet-cfg
 
 # Portas do frontend
@@ -475,30 +544,16 @@ PUBLIC_URL=http://jitsi.localhost
 # IP do host Docker
 DOCKER_HOST_ADDRESS=10.0.0.1
 </code></pre></div>
-</td></tr></table>
 
 <p>É importante notar que os endereços marcados como .meet.jitsi são de uso interno e podem/devem ser mantidos como estão.</p>
 <p>Para iniciar usando Docker-compose:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>docker-compose up -d
+<div class="highlight"><pre><span></span><code>docker-compose up -d
 </code></pre></div>
-</td></tr></table>
 
 <h2 id="etherpad">Etherpad<a class="headerlink" href="#etherpad" title="Permanent link">&para;</a></h2>
 <p>O Etherpad é um gestor de arquivos compartilhados para uso em grupo que pode ser utilizado dentro de uma reunião do meet.</p>
 <p>Para utilizá lo, adicione o seguinte serviço no docker-compose.yml:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    etherpad:
+<div class="highlight"><pre><span></span><code>    etherpad:
         image: etherpad/etherpad:1.8.6
         restart: ${RESTART_POLICY}
         environment:
@@ -512,33 +567,9 @@ DOCKER_HOST_ADDRESS=10.0.0.1
                 aliases:
                     - etherpad.meet.jitsi
 </code></pre></div>
-</td></tr></table>
 
 <p>E adicione as seguintes variáveis de ambiente no arquivo .env.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>#
+<div class="highlight"><pre><span></span><code>#
 # Etherpad integration (for document sharing)
 #
 
@@ -563,7 +594,6 @@ ETHERPAD_SKIN_VARIANTS=super-light-toolbar super-light-editor light-background f
 # To remove a warning in pad texts
 SUPPRESS_ERRORS_IN_PAD_TEXT=true
 </code></pre></div>
-</td></tr></table>
 
 <p>É importante notar que o ETHERPAD_URL_BASE refere-se ao endereço interno do Etherpad, o Nginx do frontend criará uma rota apontando o endereço de /etherpad para a URL interna. Da mesma forma é importante manter a ETHERPAD_PUBLIC_URL com o mesmo host do seu ambiente, para evitar erros de CORS.</p>
 <h2 id="autenticacao">Autenticação<a class="headerlink" href="#autenticacao" title="Permanent link">&para;</a></h2>
@@ -575,16 +605,7 @@ SUPPRESS_ERRORS_IN_PAD_TEXT=true
 </ul>
 <h3 id="ldap">LDAP<a class="headerlink" href="#ldap" title="Permanent link">&para;</a></h3>
 <p>Está é uma configuração padrão de autenticação por LDAP para um servidor de Active Directory com Windows.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>ENABLE_AUTH=1
+<div class="highlight"><pre><span></span><code>ENABLE_AUTH=1
 ENABLE_GUESTS=1
 AUTH_TYPE=ldap
 LDAP_URL=ldap://adserver:389
@@ -595,27 +616,18 @@ LDAP_FILTER=(samaccountname=%u)
 LDAP_AUTH_METHOD=bind
 LDAP_USE_TLS=0
 </code></pre></div>
-</td></tr></table>
 
 <h3 id="keycloak">Keycloak<a class="headerlink" href="#keycloak" title="Permanent link">&para;</a></h3>
 <p>Vamos tentar usar o Keycloak como metodo de autenticação.</p>
 <h2 id="metricas">Métricas<a class="headerlink" href="#metricas" title="Permanent link">&para;</a></h2>
 <p>Podemos verificar as metricas de uso do JVB adicionando os seguintes endpoints na variavel JVB_ENABLE_APIS:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>JVB_ENABLE_APIS=rest,colibri,stats
+<div class="highlight"><pre><span></span><code>JVB_ENABLE_APIS=rest,colibri,stats
 </code></pre></div>
-</td></tr></table>
 
 <p>Após isto, podemos acessar o container do JVB na porta 8080 (<a href="http://jvb:8080/colibri/stats">http://jvb:8080/colibri/stats</a>); é importante notar que ele gera as metricas em formato Json, isso pode ser util em alguns casos, porém em geral gostariamos que ele nos entregasse algo no formato do Prometheus. Para isso podemos usar um workaround interessante:</p>
 <h3 id="prometheus">Prometheus<a class="headerlink" href="#prometheus" title="Permanent link">&para;</a></h3>
 <p>Podemos usar um <a href="https://github.com/systemli/prometheus-jitsi-meet-exporter">container utilitario</a> para traduzir as metricas:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    exporter:
+<div class="highlight"><pre><span></span><code>    exporter:
         image: systemli/prometheus-jitsi-meet-exporter:latest
         restart: ${RESTART_POLICY}
         command: -videobridge-url http://jvb:8080/colibri/stats
@@ -624,7 +636,6 @@ LDAP_USE_TLS=0
         networks:
             meet.jitsi:
 </code></pre></div>
-</td></tr></table>
                 
               
               
@@ -658,13 +669,13 @@ LDAP_USE_TLS=0
           </a>
         
         
-          <a href="../monitoramento/" title="Monitoramento" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../prometheus/prometheus/" title="Prometheus" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Monitoramento
+                Prometheus
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

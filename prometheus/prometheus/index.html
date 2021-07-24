@@ -1,0 +1,674 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.3.2">
+    
+    
+      
+        <title>Prometheus - Documentações diversas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fe0cca5b.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#monitoramento-com-prometheus" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Documentações diversas" class="md-header-nav__button md-logo" aria-label="Documentações diversas">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Documentações diversas
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Prometheus
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Documentações diversas" class="md-nav__button md-logo" aria-label="Documentações diversas">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Documentações diversas
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Aplicações
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Aplicações" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Aplicações
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../keycloak/" title="Keycloak" class="md-nav__link">
+      Keycloak
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../gluu/" title="Gluu" class="md-nav__link">
+      Gluu
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../jitsi/" title="Jitsi" class="md-nav__link">
+      Jitsi
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Kubernetes
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Kubernetes" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Kubernetes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1" checked>
+    
+    <label class="md-nav__link" for="nav-3-1">
+      Monitoramento
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Monitoramento" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Monitoramento
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Prometheus
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Prometheus" class="md-nav__link md-nav__link--active">
+      Prometheus
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prometheus-no-minikube" class="md-nav__link">
+    Prometheus no Minikube
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iniciando-o-minikube" class="md-nav__link">
+    Iniciando o Minikube
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prometheus-chart" class="md-nav__link">
+    Prometheus Chart
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalacao-pronta-e-agora" class="md-nav__link">
+    Instalação pronta, e agora?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dashboards" class="md-nav__link">
+    Dashboards
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sobre-clusters" class="md-nav__link">
+    Sobre clusters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#palavras-finais" class="md-nav__link">
+    Palavras finais
+  </a>
+  
+    <nav class="md-nav" aria-label="Palavras finais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remocao-do-ambiente" class="md-nav__link">
+    Remoção do ambiente
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prometheus-no-minikube" class="md-nav__link">
+    Prometheus no Minikube
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iniciando-o-minikube" class="md-nav__link">
+    Iniciando o Minikube
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prometheus-chart" class="md-nav__link">
+    Prometheus Chart
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalacao-pronta-e-agora" class="md-nav__link">
+    Instalação pronta, e agora?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dashboards" class="md-nav__link">
+    Dashboards
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sobre-clusters" class="md-nav__link">
+    Sobre clusters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#palavras-finais" class="md-nav__link">
+    Palavras finais
+  </a>
+  
+    <nav class="md-nav" aria-label="Palavras finais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remocao-do-ambiente" class="md-nav__link">
+    Remoção do ambiente
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="monitoramento-com-prometheus">Monitoramento com Prometheus<a class="headerlink" href="#monitoramento-com-prometheus" title="Permanent link">&para;</a></h1>
+<p>Existem várias formas de se monitorar um cluster Kubernetes. Temos plataformas pagas como o <a href="https://www.dynatrace.com/">Dynatrace</a> ou o <a href="https://www.datadoghq.com/">Datalog</a> que hospedam as suas métricas na nuvem e gerenciam a infraestrutura necessária de forma automática. Existem também plataformas gratuitas e open source que podem ser instalados localmente, deixando todo o gerenciamento por sua conta.</p>
+<p>Entre as principais plataformas de monitoramento disponíveis gratuitamente, a comunidade costuma considerar o Prometheus como o padrão de monitoramento de cluster Kubernetes on premise e em nuvem.</p>
+<p>Além disso, quando tratamos de projetos (não plataformas) open source, o Prometheus brilha. O protocolo <a href="https://github.com/OpenObservability/OpenMetrics/blob/main/specification/OpenMetrics.md">OpenMetrics</a>, criado como uma forma de padronizar o formato de exportação de metricas usado pelo Prometheus é muito difundido na comunidade. Mesmo em aplicações que não tem suporte a exportar métricas no formato do Prometheus, facilmente conseguimos encontrar extensões ou exporters que podem ser incluídas no sistema, adicionando o suporte.</p>
+<p>Junto com isto, criar e editar gráficos e dashboards no Grafana (O visualizador de métricas natural do Prometheus) é extremamente fácil e intuitivo. Além disso, existem provavelmente milhares de dashboards compartilhados na internet para todo tipo de aplicação.</p>
+<h2 id="prometheus-no-minikube">Prometheus no Minikube<a class="headerlink" href="#prometheus-no-minikube" title="Permanent link">&para;</a></h2>
+<p>Dado esta introdução, vamos demonstrar a instalação de um ambiente de monitoramento de um Kubernetes, não falarei cluster, pois usaremos um Minikube com apenas um nó. Caso você queira testar também, os seguintes requisitos são necessários:</p>
+<ul>
+<li>Minikube</li>
+<li>Helm</li>
+</ul>
+<p>Não abordarei a instalação deles neste documento, então antes de seguir os próximos pontos, prepare-os de forma adequada em sua estação de trabalho.</p>
+<p>Caso você instale o Kubernetes em servidores diferentes de sua estação de trabalho, é importante que você execute os comandos de "port-forward" direto de sua estação. Caso isto não seja possível, você teria que customizar estes comandos para conseguir acessar os recursos de seu cluster ou prover outros métodos.</p>
+<h2 id="iniciando-o-minikube">Iniciando o Minikube<a class="headerlink" href="#iniciando-o-minikube" title="Permanent link">&para;</a></h2>
+<p>O Minikube, em meu caso, usará o Docker de minha estação para criar nosso ambiente de testes. Em alguns casos ele pode usar VM's em um hypervisor ou coisas parecidas. De qualquer, ele irá tratar de preparar a integração entre nosso kubectl local e o cluster K8S.</p>
+<p>Então vamos lá, para iniciar o ambiente execute:</p>
+<div class="highlight"><pre><span></span><code>minikube start
+</code></pre></div>
+
+<p><img alt="Minikube_start" src="../img/000_minikube_start.png" /></p>
+<p>Com nosso ambiente iniciado, podemos verificar se tudo está OK rodando alguns comandos:</p>
+<div class="highlight"><pre><span></span><code>kubectl get nodes
+</code></pre></div>
+
+<p>Que nos retornará uma lista com os nodes de nosso cluster.</p>
+<div class="highlight"><pre><span></span><code>kubectl get pods -A
+</code></pre></div>
+
+<p>Que nos retornará os pods de todos os Namespaces.</p>
+<p>Algo parecido com isso será retornado...</p>
+<p><img alt="ok" src="../img/001_ok_commands.png" /></p>
+<h2 id="prometheus-chart">Prometheus Chart<a class="headerlink" href="#prometheus-chart" title="Permanent link">&para;</a></h2>
+<p>Para simplificar a instalação de ambientes de monitoramento de clusters Kubernetes usando Prometheus, um <a href="https://github.com/prometheus-community/helm-charts/">Chart</a> foi criado.</p>
+<p>Com ele, iremos implementar toda a infraestrutura necessária para uma instalação padrão do Prometheus, Grafana, Node Exporter, Metric Server e Alert Manager. O ambiente ainda não estará pronto para produção, porém será possível testar praticamente todas as características do ambiente.</p>
+<p>Começaremos criando um namespace para abrigar todos os objetos criados pelo Operator:</p>
+<p><div class="highlight"><pre><span></span><code>kubectl create namespace prometheus
+</code></pre></div>
+Após isso, adicionaremos o repositório do chart em nosso ambiente e o instalaremos no namespace que criamos.</p>
+<div class="highlight"><pre><span></span><code>helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>helm install prometheus prometheus-community/kube-prometheus-stack --namespace prometheus
+</code></pre></div>
+
+<p>Algo assim deve ser retornado, eu removi os Warnings de API’s descontinuadas para facilitar!</p>
+<p><img alt="ok" src="../img/002_helm_install.png" /></p>
+<p>O processo de instalação demora alguns minutos. Podemos usar um comando para verificar a instalação. Ao final o ambiente deve ficar da seguinte forma:</p>
+<div class="highlight"><pre><span></span><code>kubectl get pods -n prometheus
+</code></pre></div>
+
+<p><img alt="ok" src="../img/003_helm_ok.png" /></p>
+<p>De maneira simplificada, cada um desses pods tem a seguinte finalidade: </p>
+<ul>
+<li>Alertmanager: Gerenciador de alertas do ambiente.</li>
+<li>Grafana: Frontend onde veremos os gráficos.</li>
+<li>Prometheus-Operator: Gerenciador da instalação.</li>
+<li>Kube-State-Metrics: Expõe as métricas dos recursos internos do Kubernetes</li>
+<li>Prometheus: Quem irá capturar e guardar as métricas.</li>
+<li>Node-Exporter: Expõe as métricas dos servidores.</li>
+</ul>
+<h2 id="instalacao-pronta-e-agora">Instalação pronta, e agora?<a class="headerlink" href="#instalacao-pronta-e-agora" title="Permanent link">&para;</a></h2>
+<p>Com a finalização da instalação do Prometheus (e outros recursos) em nosso cluster, podemos acessá-lo com os seguintes comandos:</p>
+<div class="highlight"><pre><span></span><code>kubectl port-forward -n prometheus service/prometheus-operated 9090:9090
+</code></pre></div>
+
+<p>Após isto, podemos acessar no navegador de nossa estação de trabalho em: <a href="http://localhost:9090">http://localhost:9090</a> e verificar a interface web do Prometheus!</p>
+<p><img alt="ok" src="../img/005_prometheus_ui.png" /></p>
+<p>Certo, tudo certo com o Prometheus, agora vamos acessar o Grafana. Com o seguinte comando podemos acessá-lo:</p>
+<div class="highlight"><pre><span></span><code> kubectl port-forward -n prometheus service/prometheus-grafana 3000:80
+</code></pre></div>
+
+<p>Agora podemos acessar <a href="http://localhost:3000">http://localhost:3000</a> para ter acesso ao Grafana! As credenciais de acesso são: admin/prom-operator.</p>
+<p><img alt="ok" src="../img/006_grafana_ui.png" /></p>
+<p>Caso o projeto evolua (o que é bem possível) e elas sejam alteradas, é possível recuperá-las através da secret criada no ambiente:</p>
+<p><div class="highlight"><pre><span></span><code>kubectl get secret -n prometheus prometheus-grafana -o yaml
+</code></pre></div>
+A secret guarda o usuário e a senha em base64, basta decodificar os valores para ter acesso a senha do ambiente.</p>
+<p><img alt="ok" src="../img/004_secret_grafana.png" /></p>
+<h2 id="dashboards">Dashboards<a class="headerlink" href="#dashboards" title="Permanent link">&para;</a></h2>
+<p>O ambiente já vem com vários dashboards prontos. Eles podem ser acessados <a href="http://localhost:3000/dashboards">aqui</a>.</p>
+<p><img alt="ok" src="../img/007_dashboard.png" /></p>
+<p>Não trataremos disso nesse documento, mas é fácil exportar partes interessantes de um dashboard e agregá-los todos em um único dashboard de gerenciamento. O Grafana também tem funções de criar playlists de Dashboards para deixarmos rodando em um monitor separado.</p>
+<p>O Grafana é uma aplicação bem completa. Podemos configurá-lo para usar autenticação via LDAP, configurar alertas via Slack ou Mattermost e adicionar outras fontes de dados. Além disso, existem vários plugins para customizar ainda mais o ambiente. Nesta <a href="https://grafana.com/grafana/dashboards">página</a> podemos encontrar dashboards oficiais e da comunidade para download.</p>
+<h2 id="sobre-clusters">Sobre clusters<a class="headerlink" href="#sobre-clusters" title="Permanent link">&para;</a></h2>
+<p>Estes procedimentos podem ser utilizados em ambientes com mais de um node. O Node-Exporter é implementado de forma a ter um pod iniciado em cada servidor do cluster, sendo assim, as métricas de todos os servidores serão coletadas.</p>
+<p>Os dados serão persistidos por 10 dias, porém da forma atual, caso o pod do Prometheus reinicie, todas as métricas serão perdidas. Isso pode ser resolvido de algumas formas, porém não trataremos disso nesse documento.</p>
+<h2 id="palavras-finais">Palavras finais<a class="headerlink" href="#palavras-finais" title="Permanent link">&para;</a></h2>
+<p>Por mais que este ambiente a princípio pareça completo, ainda faltam algumas coisas para realmente o colocarmos em produção. Será necessário prover o acesso a pessoas fora do cluster pelo menos ao Grafana. Temos que emitir certificados digitais para as URLs externas e gerenciar a persistência de dados do Prometheus, afinal não queremos perder nossas métricas.</p>
+<p>Além disto, o ambiente está com suas definições padrões, então teremos que observar nossas necessidades para alterar coisas como tempo de retenção, formas de autenticação e canais de alertas. Isso tudo pode ser feito no decorrer do tempo, conforme aprendemos melhor como usar este ambiente.</p>
+<p>Essas customizações podem ser feitas durante a instalação do ambiente usando o Chart do Helm. Em geral usa-se um arquivo chamado "values.yaml" em conjunto com o comando de instalação:</p>
+<div class="highlight"><pre><span></span><code>helm install prometheus prometheus-community/kube-prometheus-stack -f values.yaml --namespace prometheus
+</code></pre></div>
+
+<p>Este arquivo pode ser encontrado <a href="https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/values.yaml">aqui</a> com seus valores padrões. </p>
+<h3 id="remocao-do-ambiente">Remoção do ambiente<a class="headerlink" href="#remocao-do-ambiente" title="Permanent link">&para;</a></h3>
+<p>Caso você queira remover a instalação, isso pode ser feito com o comando:</p>
+<div class="highlight"><pre><span></span><code>helm uninstall prometheus -n prometheus
+</code></pre></div>
+
+<p>Por algum motivo, o helm não remove alguns Custom Resources criados durante a instalação. Verifique isso caso delete o ambiente!</p>
+<p>E o cluster de Kubernetes gerido pelo Minikube pode ser deletado com:</p>
+<div class="highlight"><pre><span></span><code>minikube delete
+</code></pre></div>
+
+<p>Então é isso, assim encerro este documento, onde tratamos de alguns aspectos do Prometheus no Kubernetes. Entrem em contato caso encontrem algum erro neste documento ou queiram mostrar algo interessante sobre esse ambiente!</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../../jitsi/" title="Jitsi" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Jitsi
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.7f4f3c92.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.9b3611bd.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
