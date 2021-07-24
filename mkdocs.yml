@@ -2,10 +2,13 @@ site_name: 'Documentações diversas'
 
 nav:
   - Home: index.md
-  - Keycloak: keycloak.md
-  - Gluu: gluu.md
-  - Jitsi: jitsi.md
-  
+  - Aplicações:
+    - Keycloak: keycloak.md
+    - Gluu: gluu.md
+    - Jitsi: jitsi.md
+  - Kubernetes:
+    -  Monitoramento:
+        - Prometheus: prometheus/prometheus.md
 
 plugins:
   - techdocs-core
@@ -13,3 +16,8 @@ plugins:
 theme:
   name: material
   language: pt
+
+markdown_extensions:
+  - pymdownx.highlight:
+      linenums: false
+  - pymdownx.superfences
