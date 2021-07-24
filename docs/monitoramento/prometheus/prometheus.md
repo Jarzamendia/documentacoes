@@ -1,28 +1,38 @@
-# Monitoramento com Prometheus
+# Monitoramento de Kubernetes usando Prometheus
 
-Existem várias formas de se monitorar um cluster Kubernetes. Temos plataformas pagas como o [Dynatrace](https://www.dynatrace.com/) ou o [Datalog](https://www.datadoghq.com/) que hospedam as suas métricas na nuvem e gerenciam a infraestrutura necessária de forma automática. Existem também plataformas gratuitas e open source que podem ser instalados localmente, deixando todo o gerenciamento por sua conta.
+O Kubernetes tornou extremamente fácil executar grandes cargas de trabalho em ambientes clusterizados de alta disponibilidade. Ao mesmo tempo em que aumentamos o número de aplicações e servidores em nosso ambiente, também aumentamos a complexidade do gerenciamento de nossos ativos.
  
-Entre as principais plataformas de monitoramento disponíveis gratuitamente, a comunidade costuma considerar o Prometheus como o padrão de monitoramento de cluster Kubernetes on premise e em nuvem.
+Para ajudar no monitoramento de tanto nossas cargas de trabalho, quanto do próprio ambiente em si, diversas aplicações foram criadas. Algumas delas, como o Dynatrace ou o Datalog são pagas, cobrando pela hospedagem de nossos dados e pelo suporte empresarial oferecido.
 
-Além disso, quando tratamos de projetos (não plataformas) open source, o Prometheus brilha. O protocolo [OpenMetrics](https://github.com/OpenObservability/OpenMetrics/blob/main/specification/OpenMetrics.md), criado como uma forma de padronizar o formato de exportação de metricas usado pelo Prometheus é muito difundido na comunidade. Mesmo em aplicações que não tem suporte a exportar métricas no formato do Prometheus, facilmente conseguimos encontrar extensões ou exporters que podem ser incluídas no sistema, adicionando o suporte.
+Outras, como o Prometheus ou o Elasticsearch são de código aberto, totalmente gratuitas. Mesmo nessas aplicações, também é possível adquirir o suporte empresarial de seus criadores ou usar seus ambientes gerenciados e pagar pelos seus serviços.
+ 
+Por outro lado, também é possível assumir totalmente a gestão e hospedagem dos dados monitorados em nosso ambiente. Para isto podemos usar as opções de código aberto e com isso mitigar os valores pagos a terceiros.
+ 
+## O que é o Prometheus
 
-Junto com isto, criar e editar gráficos e dashboards no Grafana (O visualizador de métricas natural do Prometheus) é extremamente fácil e intuitivo. Além disso, existem provavelmente milhares de dashboards compartilhados na internet para todo tipo de aplicação.
+Uma das plataformas mais usadas pela comunidade é o Prometheus, neste documento iremos tratar de sua instalação em um ambiente de testes do Kubernetes usando o Minikube. O Prometheus é uma plataforma de monitoramento extremamente completa e customizável, por muitos é considerado o sistema de monitoramento padrão da nuvem.
+
+Para ser mais exato, o Prometheus é uma plataforma de código aberto que coleta métricas e as guarda em forma de dados de série temporal. Estes dados podem então ser pesquisados e organizados, de forma a criar gráficos e dashboards conforme nossas necessidades. As aplicações e ambientes devem expor esses dados em endpoints HTTP que serão acessados pelo Prometheus.
+
+Quando tratamos de projetos open source, o Prometheus brilha. O protocolo [OpenMetrics](https://github.com/OpenObservability/OpenMetrics/blob/main/specification/OpenMetrics.md), criado como uma forma de padronizar o formato de exportação de métricas para o Prometheus é muito difundido na comunidade. Mesmo em aplicações que a princípio não tem suporte a exportar métricas no formato do Prometheus, facilmente conseguimos encontrar extensões da comunidade que podem ser incluídas na aplicação, adicionando então esta funcionalidade.
+
+Junto a isto, criar e editar gráficos e dashboards no Grafana (O visualizador de métricas natural do Prometheus) é extremamente fácil e intuitivo. Além disso, existem provavelmente milhares de dashboards compartilhados na internet para todo tipo de aplicação já prontos para usarmos em nosso ambiente.
 
 ## Prometheus no Minikube
 
-Dado esta introdução, vamos demonstrar a instalação de um ambiente de monitoramento de um Kubernetes, não falarei cluster, pois usaremos um Minikube com apenas um nó. Caso você queira testar também, os seguintes requisitos são necessários:
+Dada esta introdução, vamos demonstrar a instalação de um ambiente de monitoramento de um Kubernetes, neste caso não trataremos de um cluster, pois usaremos um Minikube com apenas um nó. Caso você queira testar também, os seguintes requisitos são necessários:
 
-- Minikube
-- Helm
-
+- [Minikube](https://minikube.sigs.k8s.io/docs/start/)
+- [Helm](https://helm.sh/docs/intro/install/)
+- [kubectl](https://kubernetes.io/docs/tasks/tools/)
 
 Não abordarei a instalação deles neste documento, então antes de seguir os próximos pontos, prepare-os de forma adequada em sua estação de trabalho.
 
-Caso você instale o Kubernetes em servidores diferentes de sua estação de trabalho, é importante que você execute os comandos de "port-forward" direto de sua estação. Caso isto não seja possível, você teria que customizar estes comandos para conseguir acessar os recursos de seu cluster ou prover outros métodos.
+Caso você instale o Kubernetes em um servidor diferente remoto, é importante que você execute os comandos de "port-forward" direto de sua estação. Caso isto não seja possível, você terá que customizar estes comandos para conseguir acessar os recursos de seu cluster ou prover outros métodos de acesso.
 
 ## Iniciando o Minikube
 
-O Minikube, em meu caso, usará o Docker de minha estação para criar nosso ambiente de testes. Em alguns casos ele pode usar VM's em um hypervisor ou coisas parecidas. De qualquer, ele irá tratar de preparar a integração entre nosso kubectl local e o cluster K8S.
+O Minikube, em meu caso, usará o Docker de minha estação para criar nosso ambiente de testes. Em alguns casos ele pode usar VM's em um hypervisor ou coisas parecidas. De qualquer modo, ele irá tratar de preparar a integração entre nosso kubectl local e o cluster K8S.
 
 Então vamos lá, para iniciar o ambiente execute:
 
@@ -141,9 +151,11 @@ O Grafana é uma aplicação bem completa. Podemos configurá-lo para usar auten
 
 ## Sobre clusters
 
-Estes procedimentos podem ser utilizados em ambientes com mais de um node. O Node-Exporter é implementado de forma a ter um pod iniciado em cada servidor do cluster, sendo assim, as métricas de todos os servidores serão coletadas.
+Estes procedimentos podem ser utilizados em ambientes com mais de um node com poucas modificações. O Node-Exporter é implementado de forma a ter um pod iniciado em cada servidor do cluster, sendo assim, as métricas de todos os servidores serão coletadas.
 
 Os dados serão persistidos por 10 dias, porém da forma atual, caso o pod do Prometheus reinicie, todas as métricas serão perdidas. Isso pode ser resolvido de algumas formas, porém não trataremos disso nesse documento.
+
+Provavelmente, caso você tente executar os comandos deste documento em um cluster já em funcionamento você terá resultados muito parecidos com os executados em um ambiente de teste com Minikube, esta é a beleza dos Helm Charts e Operators do Kubernetes.
 
 ## Palavras finais
 
@@ -159,6 +171,8 @@ helm install prometheus prometheus-community/kube-prometheus-stack -f values.yam
 ```
 
 Este arquivo pode ser encontrado [aqui](https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/values.yaml) com seus valores padrões. 
+
+Por fim, 
 
 ### Remoção do ambiente
 
@@ -180,4 +194,6 @@ minikube delete
 ```
 
 Então é isso, assim encerro este documento, onde tratamos de alguns aspectos do Prometheus no Kubernetes. Entrem em contato caso encontrem algum erro neste documento ou queiram mostrar algo interessante sobre esse ambiente!
+
+
 

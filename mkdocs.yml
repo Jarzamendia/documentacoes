@@ -3,12 +3,13 @@ site_name: 'Documentações diversas'
 nav:
   - Home: index.md
   - Aplicações:
-    - Keycloak: keycloak.md
-    - Gluu: gluu.md
-    - Jitsi: jitsi.md
+    - Keycloak: aplicacoes/keycloak.md
+    - Gluu: aplicacoes/gluu.md
+    - Jitsi: aplicacoes/jitsi.md
+    - Mattermost: aplicacoes/mattermost.md
   - Kubernetes:
     -  Monitoramento:
-        - Prometheus: prometheus/prometheus.md
+        - Prometheus: monitoramento/prometheus/prometheus.md
 
 plugins:
   - techdocs-core

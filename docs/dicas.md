@@ -1,8 +1,6 @@
-# Sample Code
+# Dicas para o uso do Mkdocs
 
-This page provides some sample code which may be used in your example component.
-
-This code uses TypeScript, and the Markdown code fence to wrap the code.
+## Code Sampling
 
 ```typescript
 const serviceEntityPage = (
@@ -20,8 +18,6 @@ const serviceEntityPage = (
   </EntityLayout>
 );
 ```
-
-Here is an example of Python code:
 
 ```python
 def getUsersInGroup(targetGroup, secure=False):
