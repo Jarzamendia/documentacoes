@@ -10,16 +10,16 @@
       
       
       
-      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.3.2">
     
     
       
-        <title>Keycloak - Documentações diversas</title>
+        <title>Jitsi - Documentações diversas</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.fe0cca5b.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fe0cca5b.min.css">
       
       
     
@@ -49,7 +49,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#keycloak" class="md-skip">
+        <a href="#jitsi-meet" class="md-skip">
           Skip to content
         </a>
       
@@ -60,7 +60,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href=".." title="Documentações diversas" class="md-header-nav__button md-logo" aria-label="Documentações diversas">
+    <a href="../.." title="Documentações diversas" class="md-header-nav__button md-logo" aria-label="Documentações diversas">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -77,7 +77,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Keycloak
+              Jitsi
             
           </span>
         </div>
@@ -134,7 +134,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Documentações diversas" class="md-nav__button md-logo" aria-label="Documentações diversas">
+    <a href="../.." title="Documentações diversas" class="md-nav__button md-logo" aria-label="Documentações diversas">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -151,7 +151,7 @@
 
 
   <li class="md-nav__item">
-    <a href=".." title="Home" class="md-nav__link">
+    <a href="../.." title="Home" class="md-nav__link">
       Home
     </a>
   </li>
@@ -188,6 +188,30 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../keycloak/" title="Keycloak" class="md-nav__link">
+      Keycloak
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gluu/" title="Gluu" class="md-nav__link">
+      Gluu
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -199,14 +223,14 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Keycloak
+        Jitsi
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
         </span>
       </label>
     
-    <a href="./" title="Keycloak" class="md-nav__link md-nav__link--active">
-      Keycloak
+    <a href="./" title="Jitsi" class="md-nav__link md-nav__link--active">
+      Jitsi
     </a>
     
       
@@ -232,16 +256,63 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#docker-compose" class="md-nav__link">
-    Docker-compose
+  <a href="#como-iniciar" class="md-nav__link">
+    Como iniciar?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#exportacao-de-realm" class="md-nav__link">
-    Exportação de realm
+  <a href="#etherpad" class="md-nav__link">
+    Etherpad
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autenticacao" class="md-nav__link">
+    Autenticação
+  </a>
+  
+    <nav class="md-nav" aria-label="Autenticação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ldap" class="md-nav__link">
+    LDAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keycloak" class="md-nav__link">
+    Keycloak
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metricas" class="md-nav__link">
+    Métricas
+  </a>
+  
+    <nav class="md-nav" aria-label="Métricas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prometheus" class="md-nav__link">
+    Prometheus
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -258,20 +329,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../gluu/" title="Gluu" class="md-nav__link">
-      Gluu
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../jitsi/" title="Jitsi" class="md-nav__link">
-      Jitsi
+    <a href="../mattermost/" title="Mattermost" class="md-nav__link">
+      Mattermost
     </a>
   </li>
 
@@ -337,7 +396,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../prometheus/prometheus/" title="Prometheus" class="md-nav__link">
+    <a href="../../monitoramento/prometheus/prometheus/" title="Prometheus" class="md-nav__link">
       Prometheus
     </a>
   </li>
@@ -386,16 +445,63 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#docker-compose" class="md-nav__link">
-    Docker-compose
+  <a href="#como-iniciar" class="md-nav__link">
+    Como iniciar?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#exportacao-de-realm" class="md-nav__link">
-    Exportação de realm
+  <a href="#etherpad" class="md-nav__link">
+    Etherpad
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autenticacao" class="md-nav__link">
+    Autenticação
+  </a>
+  
+    <nav class="md-nav" aria-label="Autenticação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ldap" class="md-nav__link">
+    LDAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keycloak" class="md-nav__link">
+    Keycloak
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metricas" class="md-nav__link">
+    Métricas
+  </a>
+  
+    <nav class="md-nav" aria-label="Métricas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prometheus" class="md-nav__link">
+    Prometheus
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -415,13 +521,133 @@
                   
                 
                 
-                <h1 id="keycloak">Keycloak<a class="headerlink" href="#keycloak" title="Permanent link">&para;</a></h1>
+                <h1 id="jitsi-meet">Jitsi Meet<a class="headerlink" href="#jitsi-meet" title="Permanent link">&para;</a></h1>
 <h2 id="githubs">Githubs<a class="headerlink" href="#githubs" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://github.com/Jarzamendia/keycloak.git">https://github.com/Jarzamendia/keycloak.git</a></li>
+<li><a href="https://github.com/jitsi/jitsi-meet">https://github.com/jitsi/jitsi-meet</a></li>
+<li><a href="https://github.com/jitsi/docker-jitsi-meet">https://github.com/jitsi/docker-jitsi-meet</a></li>
 </ul>
-<h2 id="docker-compose">Docker-compose<a class="headerlink" href="#docker-compose" title="Permanent link">&para;</a></h2>
-<h2 id="exportacao-de-realm">Exportação de realm<a class="headerlink" href="#exportacao-de-realm" title="Permanent link">&para;</a></h2>
+<h2 id="como-iniciar">Como iniciar?<a class="headerlink" href="#como-iniciar" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code># Clonar o ambiente, nesse caso usaremos o oficial.
+git clone https://github.com/jitsi/docker-jitsi-meet.git
+
+cd docker-jitsi-meet
+
+# Criaremos o arquivo de variaveis de ambiente.
+mv env.example .env
+
+chmod +x gen-passwords.sh
+
+# Gerar as variaveis de segurança.
+./gen-passwords.sh
+</code></pre></div>
+
+<p>Após isto, edite as variaveis necessarias no arquivo .env. As mais importantes são:</p>
+<div class="highlight"><pre><span></span><code># Local onde os arquivos de configuração serão salvos (incluindo certificados)
+CONFIG=./jitsi-meet-cfg
+
+# Portas do frontend
+HTTP_PORT=80
+HTTPS_PORT=8443
+
+# URL que será usada para acessar o Meet, é obrigatória!
+PUBLIC_URL=http://jitsi.localhost
+
+# IP do host Docker
+DOCKER_HOST_ADDRESS=10.0.0.1
+</code></pre></div>
+
+<p>É importante notar que os endereços marcados como .meet.jitsi são de uso interno e podem/devem ser mantidos como estão.</p>
+<p>Para iniciar usando Docker-compose:</p>
+<div class="highlight"><pre><span></span><code>docker-compose up -d
+</code></pre></div>
+
+<h2 id="etherpad">Etherpad<a class="headerlink" href="#etherpad" title="Permanent link">&para;</a></h2>
+<p>O Etherpad é um gestor de arquivos compartilhados para uso em grupo que pode ser utilizado dentro de uma reunião do meet.</p>
+<p>Para utilizá lo, adicione o seguinte serviço no docker-compose.yml:</p>
+<div class="highlight"><pre><span></span><code>    etherpad:
+        image: etherpad/etherpad:1.8.6
+        restart: ${RESTART_POLICY}
+        environment:
+            - TITLE=${ETHERPAD_TITLE}
+            - DEFAULT_PAD_TEXT=${ETHERPAD_DEFAULT_PAD_TEXT}
+            - SKIN_NAME=${ETHERPAD_SKIN_NAME}
+            - SKIN_VARIANTS=${ETHERPAD_SKIN_VARIANTS}
+            - SUPPRESS_ERRORS_IN_PAD_TEXT
+        networks:
+            meet.jitsi:
+                aliases:
+                    - etherpad.meet.jitsi
+</code></pre></div>
+
+<p>E adicione as seguintes variáveis de ambiente no arquivo .env.</p>
+<div class="highlight"><pre><span></span><code>#
+# Etherpad integration (for document sharing)
+#
+
+# Set etherpad-lite URL in docker local network (uncomment to enable)
+ETHERPAD_URL_BASE=http://etherpad.meet.jitsi:9001
+
+# Set etherpad-lite public URL (uncomment to enable)
+ETHERPAD_PUBLIC_URL=http://jitsi.localhost/etherpad/p/
+
+# Name your etherpad instance!
+ETHERPAD_TITLE=Video Chat
+
+# The default text of a pad
+ETHERPAD_DEFAULT_PAD_TEXT=Welcome to Web Chat!\n\n
+
+# Name of the skin for etherpad
+ETHERPAD_SKIN_NAME=colibris
+
+# Skin variants for etherpad
+ETHERPAD_SKIN_VARIANTS=super-light-toolbar super-light-editor light-background full-width-editor
+
+# To remove a warning in pad texts
+SUPPRESS_ERRORS_IN_PAD_TEXT=true
+</code></pre></div>
+
+<p>É importante notar que o ETHERPAD_URL_BASE refere-se ao endereço interno do Etherpad, o Nginx do frontend criará uma rota apontando o endereço de /etherpad para a URL interna. Da mesma forma é importante manter a ETHERPAD_PUBLIC_URL com o mesmo host do seu ambiente, para evitar erros de CORS.</p>
+<h2 id="autenticacao">Autenticação<a class="headerlink" href="#autenticacao" title="Permanent link">&para;</a></h2>
+<p>É possível usar o meet com autenticação, incluindo em modo híbrido com usuários autenticados e não autenticados, segue algumas coisas interessantes:</p>
+<ul>
+<li>Quando definimos a autenticação, apenas usuários logados podem criar salas.</li>
+<li>Caso definamos ENABLE_GUESTS como true, usuários deslogados poderão entrar em salas já criadas.</li>
+<li>Usuários deslogados têm o terrível hábito de não colocarem um nome no seu perfil. As opções ENABLE_WELCOME_PAGE, ENABLE_PREJOIN_PAGE, ENABLE_CLOSE_PAGE e ENABLE_REQUIRE_DISPLAY_NAME cuidam muito bem disso.</li>
+</ul>
+<h3 id="ldap">LDAP<a class="headerlink" href="#ldap" title="Permanent link">&para;</a></h3>
+<p>Está é uma configuração padrão de autenticação por LDAP para um servidor de Active Directory com Windows.</p>
+<div class="highlight"><pre><span></span><code>ENABLE_AUTH=1
+ENABLE_GUESTS=1
+AUTH_TYPE=ldap
+LDAP_URL=ldap://adserver:389
+LDAP_BASE=OU=users,DC=contoso,DC=com
+LDAP_BINDDN=CN=user,OU=users,DC=contoso,DC=com
+LDAP_BINDPW=password
+LDAP_FILTER=(samaccountname=%u)
+LDAP_AUTH_METHOD=bind
+LDAP_USE_TLS=0
+</code></pre></div>
+
+<h3 id="keycloak">Keycloak<a class="headerlink" href="#keycloak" title="Permanent link">&para;</a></h3>
+<p>Vamos tentar usar o Keycloak como metodo de autenticação.</p>
+<h2 id="metricas">Métricas<a class="headerlink" href="#metricas" title="Permanent link">&para;</a></h2>
+<p>Podemos verificar as metricas de uso do JVB adicionando os seguintes endpoints na variavel JVB_ENABLE_APIS:</p>
+<div class="highlight"><pre><span></span><code>JVB_ENABLE_APIS=rest,colibri,stats
+</code></pre></div>
+
+<p>Após isto, podemos acessar o container do JVB na porta 8080 (<a href="http://jvb:8080/colibri/stats">http://jvb:8080/colibri/stats</a>); é importante notar que ele gera as metricas em formato Json, isso pode ser util em alguns casos, porém em geral gostariamos que ele nos entregasse algo no formato do Prometheus. Para isso podemos usar um workaround interessante:</p>
+<h3 id="prometheus">Prometheus<a class="headerlink" href="#prometheus" title="Permanent link">&para;</a></h3>
+<p>Podemos usar um <a href="https://github.com/systemli/prometheus-jitsi-meet-exporter">container utilitario</a> para traduzir as metricas:</p>
+<div class="highlight"><pre><span></span><code>    exporter:
+        image: systemli/prometheus-jitsi-meet-exporter:latest
+        restart: ${RESTART_POLICY}
+        command: -videobridge-url http://jvb:8080/colibri/stats
+        ports:
+            - 9888:9888
+        networks:
+            meet.jitsi:
+</code></pre></div>
                 
               
               
@@ -440,7 +666,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href=".." title="Home" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../gluu/" title="Gluu" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -449,19 +675,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Home
+                Gluu
               </div>
             </div>
           </a>
         
         
-          <a href="../gluu/" title="Gluu" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../mattermost/" title="Mattermost" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Gluu
+                Mattermost
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
@@ -488,15 +714,15 @@
       
     </div>
     
-      <script src="../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../assets/javascripts/bundle.7f4f3c92.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.7f4f3c92.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
-          base: "..",
+          base: "../..",
           features: [],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.9b3611bd.min.js"
+            worker: "../../assets/javascripts/worker/search.9b3611bd.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

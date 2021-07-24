@@ -10,7 +10,7 @@
       
       
       
-      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.3.2">
     
     
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.fe0cca5b.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.fe0cca5b.min.css">
       
       
     
@@ -49,7 +49,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#monitoramento-com-prometheus" class="md-skip">
+        <a href="#monitoramento-de-kubernetes-usando-prometheus" class="md-skip">
           Skip to content
         </a>
       
@@ -60,7 +60,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="../.." title="Documentações diversas" class="md-header-nav__button md-logo" aria-label="Documentações diversas">
+    <a href="../../.." title="Documentações diversas" class="md-header-nav__button md-logo" aria-label="Documentações diversas">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -134,7 +134,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Documentações diversas" class="md-nav__button md-logo" aria-label="Documentações diversas">
+    <a href="../../.." title="Documentações diversas" class="md-nav__button md-logo" aria-label="Documentações diversas">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -151,7 +151,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../.." title="Home" class="md-nav__link">
+    <a href="../../.." title="Home" class="md-nav__link">
       Home
     </a>
   </li>
@@ -188,7 +188,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../keycloak/" title="Keycloak" class="md-nav__link">
+    <a href="../../../aplicacoes/keycloak/" title="Keycloak" class="md-nav__link">
       Keycloak
     </a>
   </li>
@@ -200,7 +200,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../gluu/" title="Gluu" class="md-nav__link">
+    <a href="../../../aplicacoes/gluu/" title="Gluu" class="md-nav__link">
       Gluu
     </a>
   </li>
@@ -212,8 +212,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../jitsi/" title="Jitsi" class="md-nav__link">
+    <a href="../../../aplicacoes/jitsi/" title="Jitsi" class="md-nav__link">
       Jitsi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../aplicacoes/mattermost/" title="Mattermost" class="md-nav__link">
+      Mattermost
     </a>
   </li>
 
@@ -316,6 +328,13 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#o-que-e-o-prometheus" class="md-nav__link">
+    O que é o Prometheus
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#prometheus-no-minikube" class="md-nav__link">
@@ -422,6 +441,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#o-que-e-o-prometheus" class="md-nav__link">
+    O que é o Prometheus
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#prometheus-no-minikube" class="md-nav__link">
     Prometheus no Minikube
   </a>
@@ -499,21 +525,27 @@
                   
                 
                 
-                <h1 id="monitoramento-com-prometheus">Monitoramento com Prometheus<a class="headerlink" href="#monitoramento-com-prometheus" title="Permanent link">&para;</a></h1>
-<p>Existem várias formas de se monitorar um cluster Kubernetes. Temos plataformas pagas como o <a href="https://www.dynatrace.com/">Dynatrace</a> e o <a href="https://www.datadoghq.com/">Datalog</a> que hospedam as suas métricas na nuvem e gerenciam a infraestrutura necessária de forma automática. Existem também plataformas gratuitas e open source que podem ser instalados localmente, deixando todo o gerenciamento por sua conta.</p>
-<p>Entre as principais plataformas de monitoramento disponíveis gratuitamente, a comunidade costuma considerar o Prometheus como o padrão de monitoramento de cluster Kubernetes on premise e em nuvem.</p>
-<p>Além disso, quando tratamos de projetos (não plataformas) open source, o Prometheus brilha. O protocolo <a href="https://github.com/OpenObservability/OpenMetrics/blob/main/specification/OpenMetrics.md">OpenMetrics</a>, criado como uma forma de padronizar o formato de exportação de metricas usado pelo Prometheus é muito difundido na comunidade. Mesmo em aplicações que não tem suporte a exportar métricas no formato do Prometheus, facilmente conseguimos encontrar extensões ou exporters que podem ser incluídas no sistema, adicionando então esta funcionalidade.</p>
-<p>Junto com isto, criar e editar gráficos e dashboards no Grafana (O visualizador de métricas natural do Prometheus) é extremamente fácil e intuitivo. Além disso, existem provavelmente milhares de dashboards compartilhados na internet para todo tipo de aplicação já prontos para usarmos em nosso ambiente.</p>
+                <h1 id="monitoramento-de-kubernetes-usando-prometheus">Monitoramento de Kubernetes usando Prometheus<a class="headerlink" href="#monitoramento-de-kubernetes-usando-prometheus" title="Permanent link">&para;</a></h1>
+<p>O Kubernetes tornou extremamente fácil executar grandes cargas de trabalho em ambientes clusterizados de alta disponibilidade. Ao mesmo tempo em que aumentamos o número de aplicações e servidores em nosso ambiente, também aumentamos a complexidade do gerenciamento de nossos ativos.</p>
+<p>Para ajudar no monitoramento de tanto nossas cargas de trabalho, quanto do próprio ambiente em si, diversas aplicações foram criadas. Algumas delas, como o Dynatrace ou o Datalog são pagas, cobrando pela hospedagem de nossos dados e pelo suporte empresarial oferecido.</p>
+<p>Outras, como o Prometheus ou o Elasticsearch são de código aberto, totalmente gratuitas. Mesmo nessas aplicações, também é possível adquirir o suporte empresarial de seus criadores ou usar seus ambientes gerenciados e pagar pelos seus serviços.</p>
+<p>Por outro lado, também é possível assumir totalmente a gestão e hospedagem dos dados monitorados em nosso ambiente. Para isto podemos usar as opções de código aberto e com isso mitigar os valores pagos a terceiros.</p>
+<h2 id="o-que-e-o-prometheus">O que é o Prometheus<a class="headerlink" href="#o-que-e-o-prometheus" title="Permanent link">&para;</a></h2>
+<p>Uma das plataformas mais usadas pela comunidade é o Prometheus, neste documento iremos tratar de sua instalação em um ambiente de testes do Kubernetes usando o Minikube. O Prometheus é uma plataforma de monitoramento extremamente completa e customizável, por muitos é considerado o sistema de monitoramento padrão da nuvem.</p>
+<p>Para ser mais exato, o Prometheus é uma plataforma de código aberto que coleta métricas e as guarda em forma de dados de série temporal. Estes dados podem então ser pesquisados e organizados, de forma a criar gráficos e dashboards conforme nossas necessidades. As aplicações e ambientes devem expor esses dados em endpoints HTTP que serão acessados pelo Prometheus.</p>
+<p>Quando tratamos de projetos open source, o Prometheus brilha. O protocolo <a href="https://github.com/OpenObservability/OpenMetrics/blob/main/specification/OpenMetrics.md">OpenMetrics</a>, criado como uma forma de padronizar o formato de exportação de métricas para o Prometheus é muito difundido na comunidade. Mesmo em aplicações que a princípio não tem suporte a exportar métricas no formato do Prometheus, facilmente conseguimos encontrar extensões da comunidade que podem ser incluídas na aplicação, adicionando então esta funcionalidade.</p>
+<p>Junto a isto, criar e editar gráficos e dashboards no Grafana (O visualizador de métricas natural do Prometheus) é extremamente fácil e intuitivo. Além disso, existem provavelmente milhares de dashboards compartilhados na internet para todo tipo de aplicação já prontos para usarmos em nosso ambiente.</p>
 <h2 id="prometheus-no-minikube">Prometheus no Minikube<a class="headerlink" href="#prometheus-no-minikube" title="Permanent link">&para;</a></h2>
-<p>Dado esta introdução, vamos demonstrar a instalação de um ambiente de monitoramento de um Kubernetes, não falarei cluster, pois usaremos um Minikube com apenas um nó. Caso você queira testar também, os seguintes requisitos são necessários:</p>
+<p>Dada esta introdução, vamos demonstrar a instalação de um ambiente de monitoramento de um Kubernetes, neste caso não trataremos de um cluster, pois usaremos um Minikube com apenas um nó. Caso você queira testar também, os seguintes requisitos são necessários:</p>
 <ul>
-<li>Minikube</li>
-<li>Helm</li>
+<li><a href="https://minikube.sigs.k8s.io/docs/start/">Minikube</a></li>
+<li><a href="https://helm.sh/docs/intro/install/">Helm</a></li>
+<li><a href="https://kubernetes.io/docs/tasks/tools/">kubectl</a></li>
 </ul>
 <p>Não abordarei a instalação deles neste documento, então antes de seguir os próximos pontos, prepare-os de forma adequada em sua estação de trabalho.</p>
-<p>Caso você instale o Kubernetes em servidores diferentes de sua estação de trabalho, é importante que você execute os comandos de "port-forward" direto de sua estação. Caso isto não seja possível, você teria que customizar estes comandos para conseguir acessar os recursos de seu cluster ou prover outros métodos.</p>
+<p>Caso você instale o Kubernetes em um servidor diferente remoto, é importante que você execute os comandos de "port-forward" direto de sua estação. Caso isto não seja possível, você terá que customizar estes comandos para conseguir acessar os recursos de seu cluster ou prover outros métodos de acesso.</p>
 <h2 id="iniciando-o-minikube">Iniciando o Minikube<a class="headerlink" href="#iniciando-o-minikube" title="Permanent link">&para;</a></h2>
-<p>O Minikube, em meu caso, usará o Docker de minha estação para criar nosso ambiente de testes. Em alguns casos ele pode usar VM's em um hypervisor ou coisas parecidas. De qualquer, ele irá tratar de preparar a integração entre nosso kubectl local e o cluster K8S.</p>
+<p>O Minikube, em meu caso, usará o Docker de minha estação para criar nosso ambiente de testes. Em alguns casos ele pode usar VM's em um hypervisor ou coisas parecidas. De qualquer modo, ele irá tratar de preparar a integração entre nosso kubectl local e o cluster K8S.</p>
 <p>Então vamos lá, para iniciar o ambiente execute:</p>
 <div class="highlight"><pre><span></span><code>minikube start
 </code></pre></div>
@@ -583,8 +615,9 @@ A secret guarda o usuário e a senha em base64, basta decodificar os valores par
 <p>Não trataremos disso nesse documento, mas é fácil exportar partes interessantes de um dashboard e agregá-los todos em um único dashboard de gerenciamento. O Grafana também tem funções de criar playlists de Dashboards para deixarmos rodando em um monitor separado.</p>
 <p>O Grafana é uma aplicação bem completa. Podemos configurá-lo para usar autenticação via LDAP, configurar alertas via Slack ou Mattermost e adicionar outras fontes de dados. Além disso, existem vários plugins para customizar ainda mais o ambiente. Nesta <a href="https://grafana.com/grafana/dashboards">página</a> podemos encontrar dashboards oficiais e da comunidade para download.</p>
 <h2 id="sobre-clusters">Sobre clusters<a class="headerlink" href="#sobre-clusters" title="Permanent link">&para;</a></h2>
-<p>Estes procedimentos podem ser utilizados em ambientes com mais de um node. O Node-Exporter é implementado de forma a ter um pod iniciado em cada servidor do cluster, sendo assim, as métricas de todos os servidores serão coletadas.</p>
+<p>Estes procedimentos podem ser utilizados em ambientes com mais de um node com poucas modificações. O Node-Exporter é implementado de forma a ter um pod iniciado em cada servidor do cluster, sendo assim, as métricas de todos os servidores serão coletadas.</p>
 <p>Os dados serão persistidos por 10 dias, porém da forma atual, caso o pod do Prometheus reinicie, todas as métricas serão perdidas. Isso pode ser resolvido de algumas formas, porém não trataremos disso nesse documento.</p>
+<p>Provavelmente, caso você tente executar os comandos deste documento em um cluster já em funcionamento você terá resultados muito parecidos com os executados em um ambiente de teste com Minikube, esta é a beleza dos Helm Charts e Operators do Kubernetes.</p>
 <h2 id="palavras-finais">Palavras finais<a class="headerlink" href="#palavras-finais" title="Permanent link">&para;</a></h2>
 <p>Por mais que este ambiente a princípio pareça completo, ainda faltam algumas coisas para realmente o colocarmos em produção. Será necessário prover o acesso a pessoas fora do cluster pelo menos ao Grafana. Temos que emitir certificados digitais para as URLs externas e gerenciar a persistência de dados do Prometheus, afinal não queremos perder nossas métricas.</p>
 <p>Além disto, o ambiente está com suas definições padrões, então teremos que observar nossas necessidades para alterar coisas como tempo de retenção, formas de autenticação e canais de alertas. Isso tudo pode ser feito no decorrer do tempo, conforme aprendemos melhor como usar este ambiente.</p>
@@ -593,6 +626,7 @@ A secret guarda o usuário e a senha em base64, basta decodificar os valores par
 </code></pre></div>
 
 <p>Este arquivo pode ser encontrado <a href="https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/values.yaml">aqui</a> com seus valores padrões. </p>
+<p>Por fim, </p>
 <h3 id="remocao-do-ambiente">Remoção do ambiente<a class="headerlink" href="#remocao-do-ambiente" title="Permanent link">&para;</a></h3>
 <p>Caso você queira remover a instalação, isso pode ser feito com o comando:</p>
 <div class="highlight"><pre><span></span><code>helm uninstall prometheus -n prometheus
@@ -622,7 +656,7 @@ A secret guarda o usuário e a senha em base64, basta decodificar os valores par
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../../jitsi/" title="Jitsi" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../../aplicacoes/mattermost/" title="Mattermost" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -631,7 +665,7 @@ A secret guarda o usuário e a senha em base64, basta decodificar os valores par
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Jitsi
+                Mattermost
               </div>
             </div>
           </a>
@@ -656,15 +690,15 @@ A secret guarda o usuário e a senha em base64, basta decodificar os valores par
       
     </div>
     
-      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../../assets/javascripts/bundle.7f4f3c92.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.7f4f3c92.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
-          base: "../..",
+          base: "../../..",
           features: [],
           search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.9b3611bd.min.js"
+            worker: "../../../assets/javascripts/worker/search.9b3611bd.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

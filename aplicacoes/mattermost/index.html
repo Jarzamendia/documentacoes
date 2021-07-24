@@ -15,7 +15,7 @@
     
     
       
-        <title>Monitoramento - Documentações diversas</title>
+        <title>Mattermost - Documentações diversas</title>
       
     
     
@@ -49,7 +49,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#monitoramento" class="md-skip">
+        <a href="#mattermost" class="md-skip">
           Skip to content
         </a>
       
@@ -77,7 +77,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Monitoramento
+              Mattermost
             
           </span>
         </div>
@@ -161,10 +161,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       Aplicações
@@ -188,7 +190,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../keycloak/" title="Keycloak" class="md-nav__link">
+    <a href="../keycloak/" title="Keycloak" class="md-nav__link">
       Keycloak
     </a>
   </li>
@@ -200,7 +202,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../gluu/" title="Gluu" class="md-nav__link">
+    <a href="../gluu/" title="Gluu" class="md-nav__link">
       Gluu
     </a>
   </li>
@@ -212,9 +214,63 @@
 
 
   <li class="md-nav__item">
-    <a href="../../jitsi/" title="Jitsi" class="md-nav__link">
+    <a href="../jitsi/" title="Jitsi" class="md-nav__link">
       Jitsi
     </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Mattermost
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Mattermost" class="md-nav__link md-nav__link--active">
+      Mattermost
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#script-de-limpeza" class="md-nav__link">
+    Script de limpeza
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -279,7 +335,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../prometheus/" title="Prometheus" class="md-nav__link">
+    <a href="../../monitoramento/prometheus/prometheus/" title="Prometheus" class="md-nav__link">
       Prometheus
     </a>
   </li>
@@ -321,8 +377,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prometheus-no-minikube" class="md-nav__link">
-    Prometheus no Minikube
+  <a href="#script-de-limpeza" class="md-nav__link">
+    Script de limpeza
   </a>
   
 </li>
@@ -343,43 +399,11 @@
                   
                 
                 
-                <h1 id="monitoramento">Monitoramento<a class="headerlink" href="#monitoramento" title="Permanent link">&para;</a></h1>
-<p>Existem varias formas de monitorar um cluster do Kubernetes, eu particularmente gosto de usar o ELK Stack.</p>
-<p>O Prometheus, juntamente com os utilitarios de exportação de metricas e o Grafana como frontend também é uma otima forma de monitoramento.</p>
-<h2 id="prometheus-no-minikube">Prometheus no Minikube<a class="headerlink" href="#prometheus-no-minikube" title="Permanent link">&para;</a></h2>
-<p>Iniciando o Minikube para testes</p>
-<div class="highlight"><pre><span></span><code>$ minikube start
-</code></pre></div>
-
-<p>Criando o namespace para o Prometheus</p>
-<div class="highlight"><pre><span></span><code>$ kubectl create namespace prometheus
-</code></pre></div>
-
-<p>Adicionando o Prometheus Operator</p>
-<div class="highlight"><pre><span></span><code>helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-
-helm install prometheus prometheus-community/kube-prometheus-stack --namespace prometheus
-
-$ helm uninstall prometheus --namespace prometheus
-</code></pre></div>
-
-<p>Verificando a instalação...
-<div class="highlight"><pre><span></span><code>$ kubectl get pods -n prometheus
-</code></pre></div></p>
-<p>Acessando o Grafana</p>
-<div class="highlight"><pre><span></span><code>$ kubectl port-forward -n prometheus service/prometheus-operated 9090:9090
-$ kubectl port-forward -n prometheus service/prometheus-grafana 80:3000
-$ kubectl port-forward -n prometheus service/prometheus-kube-prometheus-alertmanager 9093:9093
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>$ kubectl port-forward -n prometheus service/prometheus-operated 9090:9090
-$ kubectl port-forward -n prometheus service/prometheus-grafana 80:3000
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>$ kubectl get secret -n prometheus prometheus-grafana -o yaml
-</code></pre></div>
-
-<p>admin:prom-operator</p>
+                <h1 id="mattermost">Mattermost<a class="headerlink" href="#mattermost" title="Permanent link">&para;</a></h1>
+<h2 id="script-de-limpeza">Script de limpeza<a class="headerlink" href="#script-de-limpeza" title="Permanent link">&para;</a></h2>
+<p>A versão free do mattermost (Team Edition) não dá suporte a limpeza automatizada das mensagens\mídias. Para resolver isto, o repo <a href="https://github.com/aljazceru/mattermost-retention">https://github.com/aljazceru/mattermost-retention</a> criou um script de limpeza dos anexos e mensagens antigas.</p>
+<p>Basicamente você configura os dados do banco e a pasta 'data' do MM, tudo anterior ao período de retenção definido será apagado. O processo demora um pouco mas resolve bem o problema de acúmulo de mensagens e anexos.</p>
+<p>Recentemente eu fiz uma PR adicionando suporte ao Mysql, pois a versão da epoca só aceitava Postgres.</p>
                 
               
               
@@ -394,6 +418,41 @@ $ kubectl port-forward -n prometheus service/prometheus-grafana 80:3000
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../jitsi/" title="Jitsi" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Jitsi
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../../monitoramento/prometheus/prometheus/" title="Prometheus" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Prometheus
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
